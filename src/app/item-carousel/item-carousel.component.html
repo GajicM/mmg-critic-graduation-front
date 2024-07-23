@@ -1,0 +1,17 @@
+
+<div class="product-list" (mousedown)="onMouseDown($event)">
+    <div *ngFor="let item of items" class="product-card" (click)="onItemClick(item)">
+      <mat-card>
+        <mat-card-content>
+         <img src="{{item.image}}" 		
+         alt="Item Image"
+         height="300"
+         width="200" >
+        </mat-card-content>
+        <mat-card-header style="align-self: center;" >
+            <mat-card-title>{{ item.name }}</mat-card-title>
+            <mat-card-subtitle>{{ item.price | currency }}</mat-card-subtitle>
+          </mat-card-header>
+      </mat-card>
+    </div>
+  </div>
