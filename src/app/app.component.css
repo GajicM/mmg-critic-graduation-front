@@ -290,3 +290,21 @@
       visibility: hidden;
     }
   }
+  /* Apply padding to the entire page */
+
+/* Container to apply padding to the whole site */
+.site-container {
+  padding-left: 7%; /* Adjust the padding value as needed */
+  padding-right: 7%; /* Adjust the padding value as needed */
+}
+
+/* Ensure container takes up the full width */
+html, body {
+  width: 100%;
+}
+
+/* Example of setting max-width for responsiveness */
+.container {
+  max-width: 90%; /* Adjust according to your design */
+  margin: 0 auto; /* Center the content */
+}

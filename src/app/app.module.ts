@@ -21,6 +21,8 @@ import {FormsModule} from '@angular/forms';
 
 import {MatCardModule} from '@angular/material/card';
 import { ItemCarouselComponent } from './item-carousel/item-carousel.component';
+import { FooterComponent } from './footer/footer.component';
+import { YoutubeEmbedComponent } from './youtube-embed/youtube-embed.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { ItemCarouselComponent } from './item-carousel/item-carousel.component';
     RegisterComponent,
     AboutComponent,
     ItemCarouselComponent,
+    FooterComponent,
+    
     
   ],
   imports: [
@@ -47,7 +51,7 @@ import { ItemCarouselComponent } from './item-carousel/item-carousel.component';
     MatFormFieldModule,
     FormsModule,
     MatCardModule,
-
+    YoutubeEmbedComponent
     
     
   ],
