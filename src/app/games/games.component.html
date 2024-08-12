@@ -1,1 +1,37 @@
-<app-item-carousel [items]="products" (itemClicked)="onItemClicked($event)"></app-item-carousel>
+<div style="padding-top: 5%;">
+    <h1 style="font-size: 6rem; font-weight: 600; text-shadow: 5px 5px 5px pink; ">
+            GAMES
+    </h1>
+    <br>
+    <a style="font-size: 1.5rem;"> Find your next captivating gaming moment</a>
+</div>
+<br>
+<br>
+<a style="font-size:1.5rem">New Releases</a>
+<hr>
+<app-item-carousel [items]="newReleaseGames" [imgSource]="'https://www.vgchartz.com'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
+
+<br>
+<br>
+<a style="font-size:1.5rem">Top Rated Releases </a>
+<hr>
+<app-item-carousel [items]="newTopRatedGames"  [imgSource]="'https://www.vgchartz.com'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
+
+<br>
+<br>
+<a style="font-size:1.5rem">Top games from Rockstar Games</a>
+<hr>
+<app-item-carousel [items]="topGamesByDeveloper"  [imgSource]="'https://www.vgchartz.com'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
+
+<br>
+
+<br>
+<a style="font-size:1.5rem">Latest Videos</a>
+<hr>
+
+<youtube-player [videoId]="'n_vmzIgNaQY'" [height]="400" [width]="600" [playerVars]="playerVars"></youtube-player>
+<br>
+<br>
+<a style="font-size:1.5rem">New on Xbox</a>
+<hr>
+<app-item-carousel [items]="topForPlatform"  [imgSource]="'https://www.vgchartz.com'" (itemClicked)="onItemClicked($event)"></app-item-carousel>

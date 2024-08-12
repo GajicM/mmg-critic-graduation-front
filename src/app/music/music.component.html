@@ -1,1 +1,30 @@
-<p>music works!</p>
+<div style="padding-top: 5%;">
+    <h1 style="font-size: 6rem; font-weight: 600; text-shadow: 5px 5px 5px pink; ">
+            MUSIC
+    </h1>
+    <br>
+    <a style="font-size: 1.5rem;"> Find your next captivating movie moment</a>
+</div>
+<br>
+<br>
+<a style="font-size:1.5rem">New Releases</a>
+<hr>
+<app-item-carousel [items]="newestMusic"   (itemClicked)="onItemClicked($event)"></app-item-carousel>
+
+<br>
+<br>
+<a style="font-size:1.5rem">Top Rated</a>
+<hr>
+<app-item-carousel [items]="topRatedMusic" (itemClicked)="onItemClicked($event)"></app-item-carousel>
+
+<br>
+<br>
+<a style="font-size:1.5rem">Top rated by Eminem</a>
+<hr>
+<app-item-carousel [items]="albumsByArtist"  (itemClicked)="onItemClicked($event)"></app-item-carousel>
+
+<br>
+
+<br>
+<a style="font-size:1.5rem">Latest trailers</a>
+<hr>

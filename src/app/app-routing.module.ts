@@ -7,7 +7,10 @@ import { GamesComponent } from './games/games.component';
 import { MusicComponent } from './music/music.component';
 import { RegisterComponent } from './register/register.component';
 import { AboutComponent } from './about/about.component';
-const routes: Routes = [{
+import { MediaPageComponent } from './media-page/media-page.component';
+import { LoginComponent } from './login/login.component';
+const routes: Routes = [
+  {
   path: "",
   component: HomePageComponent
 }, 
@@ -30,6 +33,15 @@ const routes: Routes = [{
  },
  {path: 'about',
   component: AboutComponent
+ },
+
+ {
+  path: 'media',
+  component: MediaPageComponent
+ },
+ {
+  path: 'login',
+  component: LoginComponent
  }
  
 ];

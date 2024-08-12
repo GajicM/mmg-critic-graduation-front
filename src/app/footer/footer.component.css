@@ -33,4 +33,12 @@
   .footer-link:hover {
     color: #007bff;
   }
-  
+  hr {
+    border: none;
+    height: 10px;
+    /* Set the hr color */
+    background: linear-gradient(to right, 
+    green, yellow, red);
+    color: #333;  /* old IE */
+    background-color: #333;  /* Modern Browsers */
+  }

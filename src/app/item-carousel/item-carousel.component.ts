@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener, ElementRef, Renderer2, Input, Output, EventEmitter} from '@angular/core';
-
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 @Component({
   selector: 'app-item-carousel',
   templateUrl: './item-carousel.component.html',
@@ -8,14 +8,14 @@ import { Component, OnInit, HostListener, ElementRef, Renderer2, Input, Output, 
 export class ItemCarouselComponent {
 
  @Input() items: any[] =[];
-
+@Input() imgSource: string = '';
   private isMouseDown = false;
   private startX: number=0;
   private scrollLeft: number=0;
   private removeMouseMoveListener: () => void;
   private removeMouseUpListener: () => void;
 
-  constructor(private elRef: ElementRef, private renderer: Renderer2) {
+  constructor(private elRef: ElementRef, private renderer: Renderer2, private domSanitizer: DomSanitizer) { 
     this.removeMouseMoveListener = () => {};
     this.removeMouseUpListener = () => {};
   }
@@ -46,5 +46,7 @@ export class ItemCarouselComponent {
   onItemClick(item: any): void {
     this.itemClicked.emit(item);
   }
-
+  sanitazeUrl(url: string): SafeUrl {
+    return this.domSanitizer.bypassSecurityTrustResourceUrl(url);
+  }
 }

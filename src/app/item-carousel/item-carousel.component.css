@@ -22,4 +22,7 @@
   .product-list:active {
     cursor: grabbing;
   }
+  mat-card-title{
+    overflow: hidden;
+  }
   

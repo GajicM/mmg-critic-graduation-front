@@ -1,0 +1,8 @@
+.product-card {
+    width: 95%; /* Set your desired fixed width */
+    max-width: 100%;
+    min-width: 300px;
+    margin-right: 20px; /* Add some space between the cards */
+  
+    
+  }

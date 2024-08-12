@@ -18,12 +18,20 @@ import { AboutComponent } from './about/about.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms'; // Add this line
 
 import {MatCardModule} from '@angular/material/card';
 import { ItemCarouselComponent } from './item-carousel/item-carousel.component';
 import { FooterComponent } from './footer/footer.component';
-import { YoutubeEmbedComponent } from './youtube-embed/youtube-embed.component';
-
+import { YouTubePlayer } from '@angular/youtube-player';
+import { MediaPageComponent } from './media-page/media-page.component';
+import { CriticCardComponent } from './critic-card/critic-card.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatError } from '@angular/material/form-field';
+import { MatIconButton } from '@angular/material/button';
+import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +46,9 @@ import { YoutubeEmbedComponent } from './youtube-embed/youtube-embed.component';
     AboutComponent,
     ItemCarouselComponent,
     FooterComponent,
-    
+    MediaPageComponent,
+    CriticCardComponent,
+    LoginComponent
     
   ],
   imports: [
@@ -51,8 +61,13 @@ import { YoutubeEmbedComponent } from './youtube-embed/youtube-embed.component';
     MatFormFieldModule,
     FormsModule,
     MatCardModule,
-    YoutubeEmbedComponent
-    
+    YouTubePlayer,
+    MatDialogModule,
+    MatError,
+    MatIconButton,
+    MatIconModule,
+    ReactiveFormsModule,
+    HttpClientModule
     
   ],
   providers: [],

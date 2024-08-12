@@ -1,0 +1,60 @@
+<div> 
+<a> asudiasduasnd </a>
+</div>
+<div class="container">
+    <br>
+    <br>
+    <youtube-player [videoId]="'n_vmzIgNaQY'" [height]="400" [width]="711" [playerVars]="playerVars" class="box"></youtube-player>
+    <div class="box">
+        <div > <a style="font-size: 36px;
+            font-weight: 700;
+            line-height: 2.5rem;">
+            Elden Ring Shadow of the Erdtree</a></div>
+        <hr>
+        <div class="container" style="align-items: center;"> <img  src="../../assets/logo.png" [width]="60" height="60"/>  <a style="font-weight: 500; font-size: 24px;">Platform</a></div> 
+        <hr>
+        <div class="container" style="align-items: center;">  <a style="font-weight: 500; font-size: 24px;">Released on:</a></div> 
+        <hr>
+        <div class="container" style="align-items: center;"> <a style="font-weight: 500; font-size: 24px;">Critics Score</a></div> 
+  
+        <hr>
+        <div class="container" style="align-items: center;"> <a style="font-weight: 500; font-size: 24px;">User Score</a></div> 
+  
+        <hr>
+        <div class="container" style="align-items: center;">  <a style="font-weight: 500; font-size: 24px;">My Score</a></div> 
+  
+    </div>
+    <br>
+</div>
+<div class="list">
+    <app-critic-card *ngFor="let item of reviews"></app-critic-card>
+</div>
+<br>
+<br>
+<hr>
+<div class="container" >
+    <div class="user-review-list" style="width: 50%;">
+        <a style="font-size: 36px; font-weight: 500; "> User Reviews</a>
+        <app-critic-card *ngFor="let item of reviews" style="width: 100%; max-width: 100%;"></app-critic-card>
+    </div>
+    <div class="user-review-list " style="width: 50%;" >
+        <a style="font-size: 36px; font-weight: 500; "> Critic Reviews</a>
+        <app-critic-card *ngFor="let item of reviews" style="width: 100%;"></app-critic-card>
+    </div>
+</div>
+
+<div>
+    <a>Details</a>
+    <hr>
+    <div class="container">
+        <div class="box"> 
+            <a> Summary</a>
+        </div>
+        <div class="box">
+                <div class="box">Platforms</div>
+                <div class="box">Developers</div>
+                <div class="box">Genres</div>
+        </div>
+
+    </div>
+</div>

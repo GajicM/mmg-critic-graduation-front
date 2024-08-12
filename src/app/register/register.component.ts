@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-
+  user: any = {};
+  constructor() {
+    console.log('Register Component');
+  }
+  validateEmail() : boolean{
+    return true;
+  }
+  onSubmit() {}
 }
