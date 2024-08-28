@@ -9,19 +9,19 @@
 <br>
 <a style="font-size:1.5rem">New Releases</a>
 <hr>
-<app-item-carousel [items]="newReleaseGames" [imgSource]="'https://www.vgchartz.com'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
+<app-item-carousel [items]="newReleaseGames" [imgSource]="'https://www.vgchartz.com'" [ref]="'game'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
 
 <br>
 <br>
 <a style="font-size:1.5rem">Top Rated Releases </a>
 <hr>
-<app-item-carousel [items]="newTopRatedGames"  [imgSource]="'https://www.vgchartz.com'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
+<app-item-carousel [items]="newTopRatedGames"  [imgSource]="'https://www.vgchartz.com'" [ref]="'game'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
 
 <br>
 <br>
 <a style="font-size:1.5rem">Top games from Rockstar Games</a>
 <hr>
-<app-item-carousel [items]="topGamesByDeveloper"  [imgSource]="'https://www.vgchartz.com'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
+<app-item-carousel [items]="topGamesByDeveloper"  [imgSource]="'https://www.vgchartz.com'" [ref]="'game'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
 
 <br>
 
@@ -34,4 +34,4 @@
 <br>
 <a style="font-size:1.5rem">New on Xbox</a>
 <hr>
-<app-item-carousel [items]="topForPlatform"  [imgSource]="'https://www.vgchartz.com'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
+<app-item-carousel [items]="topForPlatform"  [imgSource]="'https://www.vgchartz.com'" [ref]="'game'" (itemClicked)="onItemClicked($event)"></app-item-carousel>

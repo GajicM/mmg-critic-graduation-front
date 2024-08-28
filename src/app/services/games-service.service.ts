@@ -26,5 +26,8 @@ export class GamesServiceService {
   getNewByGenre(genre:string){
     return this.httpClient.get('http://localhost:8000/api/games/new-by-genre/'+genre);
   }
+  getGameById(id:string){
+    return this.httpClient.get('http://localhost:8000/api/games/find-by-id/'+id);
+  }
 
 }

@@ -4,14 +4,14 @@
     Movies
 </h1>
 <hr>
-<app-item-carousel [items]="movies"></app-item-carousel>
+<app-item-carousel [items]="movies" [imgSource]="'https://image.tmdb.org/t/p/w500'" [ref]="'movie'"></app-item-carousel>
 <br><br>
 <br><br>
 <h1 style="font-size: 6rem; font-weight: 600; text-shadow: 5px 5px 5px pink; padding-bottom: 1%; ">
     Games
 </h1>
 <hr>
-<app-item-carousel [items]="games"></app-item-carousel>
+<app-item-carousel [items]="games" [imgSource]="'https://www.vgchartz.com'" [ref]="'game'"></app-item-carousel>
 <br>
 <br>
 <br><br>
@@ -19,4 +19,4 @@
     Music
 </h1>
 <hr>
-<app-item-carousel [items]="music"></app-item-carousel>
+<app-item-carousel [items]="music" [ref]="'album'"></app-item-carousel>

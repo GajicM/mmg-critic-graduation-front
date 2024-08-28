@@ -1,4 +1,4 @@
-<app-navigation-menu ></app-navigation-menu>
+<app-navigation-menu *ngIf="this.router.url!='/login' && this.router.url!='/register'"></app-navigation-menu>
 <div class="site-container">
 
 	
@@ -7,7 +7,7 @@
 		class="container"
 	>
 		<router-outlet></router-outlet>
-		<app-footer></app-footer>
+		<app-footer  *ngIf="this.router.url!='/login' && this.router.url!='/register'"></app-footer>
 	</section> 
 	
 

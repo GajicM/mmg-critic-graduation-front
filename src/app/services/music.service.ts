@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class MusicService {
 
+
   constructor(private httpClient:HttpClient) { }
 
   getByTitle(title:string){
@@ -20,6 +21,9 @@ export class MusicService {
 
   getAlbumsByArtist(artistName:string){
     return this.httpClient.get('http://localhost:8000/api/music/by-artist/'+artistName);
+  }
+  getMusicById(arg0: any) {
+    return this.httpClient.get('http://localhost:8000/api/music/find-by-id/'+arg0);
   }
 
 }

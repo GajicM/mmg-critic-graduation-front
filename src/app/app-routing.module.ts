@@ -9,6 +9,8 @@ import { RegisterComponent } from './register/register.component';
 import { AboutComponent } from './about/about.component';
 import { MediaPageComponent } from './media-page/media-page.component';
 import { LoginComponent } from './login/login.component';
+import { MoviePageComponent } from './movie-page/movie-page.component';
+import { AlbumPageComponent } from './album-page/album-page.component';
 const routes: Routes = [
   {
   path: "",
@@ -36,12 +38,19 @@ const routes: Routes = [
  },
 
  {
-  path: 'media',
+  path: 'game/:id',
   component: MediaPageComponent
  },
  {
   path: 'login',
   component: LoginComponent
+ },
+ {path: 'movie/:id',
+  component: MoviePageComponent
+ },
+ {
+  path: 'album/:id',
+  component: AlbumPageComponent
  }
  
 ];

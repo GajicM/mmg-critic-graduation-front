@@ -20,4 +20,7 @@ export class MmgCriticBackendService {
   getPopularByProduction(production:string){
     return this.httpClient.get('http://localhost:8000/api/movies/filter-popular-production/'+production);
   }
+  getMovieById(id:string){
+    return this.httpClient.get('http://localhost:8000/api/movies/find-by-id/'+id);
+  }
 }

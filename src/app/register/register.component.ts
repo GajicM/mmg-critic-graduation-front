@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -7,11 +8,18 @@ import { Component } from '@angular/core';
 })
 export class RegisterComponent {
   user: any = {};
-  constructor() {
+  constructor(private authService: AuthService) {
     console.log('Register Component');
   }
+
+
   validateEmail() : boolean{
     return true;
   }
-  onSubmit() {}
+  onSubmit() {
+  
+      this.authService.register(this.user).subscribe({});
+
+
+  }
 }

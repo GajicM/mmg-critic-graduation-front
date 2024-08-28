@@ -32,6 +32,10 @@ import { MatError } from '@angular/material/form-field';
 import { MatIconButton } from '@angular/material/button';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MoviePageComponent } from './movie-page/movie-page.component';
+import { AlbumPageComponent } from './album-page/album-page.component';
+import { DateTimePipe } from "./date-time.pipe";
+import { DescriptionPipe } from './description.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +52,10 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     MediaPageComponent,
     CriticCardComponent,
-    LoginComponent
+    LoginComponent,
+    MoviePageComponent,
+    AlbumPageComponent,
+    
     
   ],
   imports: [
@@ -67,9 +74,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconButton,
     MatIconModule,
     ReactiveFormsModule,
-    HttpClientModule
-    
-  ],
+    HttpClientModule,
+    DateTimePipe,
+    DescriptionPipe
+],
   providers: [],
   bootstrap: [AppComponent]
 })

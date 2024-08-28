@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-critic-card',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './critic-card.component.css'
 })
 export class CriticCardComponent {
-   review: any = { comment: "This is a great game", rating: 5, reviewer: "John Doe" };
+   @Input() review: any = { comment: "This is a great game", rating: 5, reviewer: "John Doe" };
 }

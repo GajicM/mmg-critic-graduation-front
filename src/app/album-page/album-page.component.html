@@ -1,0 +1,64 @@
+<div> 
+    <a> asudiasduasnd </a>
+    </div>
+    <div class="container">
+        <br>
+        <br>
+        <youtube-player [videoId]="'n_vmzIgNaQY'" [height]="400" [width]="711" [playerVars]="playerVars" class="box"></youtube-player>
+        <div class="box">
+            <div > <a style="font-size: 36px;
+                font-weight: 700;
+                line-height: 2.5rem;">
+               {{this.data.title}}</a></div>
+            <hr>
+            <div class="container" style="align-items: center;"> 
+               <h3>{{this.data.artist.name}}</h3>
+            </div> 
+            <hr>
+            <div class="container" style="align-items: center;">  <a style="font-weight: 500; font-size: 24px;">Released on: {{this.data.releaseDate}}</a></div> 
+            <hr>
+            <div class="container" style="align-items: center;"> <a style="font-weight: 500; font-size: 24px;">Critics Score: {{this.data.finalGrade}}</a></div> 
+      
+            <hr>
+            <div class="container" style="align-items: center;"> <a style="font-weight: 500; font-size: 24px;">User Score {{this.data.finalGrade}}</a></div> 
+      
+            <hr>
+            <div class="container" style="align-items: center;">  <a style="font-weight: 500; font-size: 24px;">My Score </a></div> 
+      
+        </div>
+        <br>
+    </div>
+    <div class="list">
+        <app-critic-card  [review]="item" *ngFor="let item of reviews"></app-critic-card>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <div class="container" >
+        <div class="user-review-list" style="width: 50%;">
+            <a style="font-size: 36px; font-weight: 500; "> User Reviews</a>
+            <app-critic-card [review]="item" *ngFor="let item of reviews" style="width: 100%; max-width: 100%;"></app-critic-card>
+        </div>
+        <div class="user-review-list " style="width: 50%;" >
+            <a style="font-size: 36px; font-weight: 500; "> Critic Reviews</a>
+            <app-critic-card [review]="item" *ngFor="let item of reviews" style="width: 100%; "></app-critic-card>
+        </div>
+    </div>
+    
+    <div>
+        <a>Details</a>
+        <hr>
+        <div class="container">
+            <div class="box"> 
+                <a> Summary</a>
+            </div>
+            <div class="box">
+                    <div class="box"> {{this.data.artist.name}}</div>
+                    <div class="box">Total Tracks {{this.data.totalTracks}}</div>
+                    <div class="box">Release Date {{this.data.releaseDate}}</div>
+                    <div class="box">Genres {{this.data.artist.genres}}</div>
+            </div>
+    
+        </div>
+    </div>
+    

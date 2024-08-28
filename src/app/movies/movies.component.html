@@ -9,19 +9,19 @@
 <br>
 <a style="font-size:1.5rem">New Releases</a>
 <hr>
-<app-item-carousel [items]="newMovies"  [imgSource]="'https://image.tmdb.org/t/p/w500'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
+<app-item-carousel [items]="newMovies"  [imgSource]="'https://image.tmdb.org/t/p/w500'" [ref]="'movie'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
 
 <br>
 <br>
 <a style="font-size:1.5rem">Top Rated</a>
 <hr>
-<app-item-carousel [items]="topRatedMovies" [imgSource]="'https://image.tmdb.org/t/p/w500'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
+<app-item-carousel [items]="topRatedMovies" [imgSource]="'https://image.tmdb.org/t/p/w500'" [ref]="'movie'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
 
 <br>
 <br>
 <a style="font-size:1.5rem">Popular right now</a>
 <hr>
-<app-item-carousel [items]="mostPopularMovies"  [imgSource]="'https://image.tmdb.org/t/p/w500'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
+<app-item-carousel [items]="mostPopularMovies"  [imgSource]="'https://image.tmdb.org/t/p/w500'"  [ref]="'movie'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
 
 <br>
 
@@ -34,4 +34,4 @@
 <br>
 <a style="font-size:1.5rem">Marvel Studios movies, ranked</a>
 <hr>
-<app-item-carousel [items]="poularMoviesByProduction" [imgSource]="'https://image.tmdb.org/t/p/w500'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
+<app-item-carousel [items]="poularMoviesByProduction" [imgSource]="'https://image.tmdb.org/t/p/w500'"  [ref]="'movie'" (itemClicked)="onItemClicked($event)"></app-item-carousel>

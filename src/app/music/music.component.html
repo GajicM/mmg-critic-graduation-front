@@ -9,19 +9,19 @@
 <br>
 <a style="font-size:1.5rem">New Releases</a>
 <hr>
-<app-item-carousel [items]="newestMusic"   (itemClicked)="onItemClicked($event)"></app-item-carousel>
+<app-item-carousel [items]="newestMusic" [ref]="'album'"  (itemClicked)="onItemClicked($event)"></app-item-carousel>
 
 <br>
 <br>
 <a style="font-size:1.5rem">Top Rated</a>
 <hr>
-<app-item-carousel [items]="topRatedMusic" (itemClicked)="onItemClicked($event)"></app-item-carousel>
+<app-item-carousel [items]="topRatedMusic"   [ref]="'album'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
 
 <br>
 <br>
 <a style="font-size:1.5rem">Top rated by Eminem</a>
 <hr>
-<app-item-carousel [items]="albumsByArtist"  (itemClicked)="onItemClicked($event)"></app-item-carousel>
+<app-item-carousel [items]="albumsByArtist"  [ref]="'album'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
 
 <br>
 

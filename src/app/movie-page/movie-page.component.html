@@ -1,0 +1,86 @@
+<div class="container" style="background-color: green;"> 
+    <a> • {{data.releaseDate | dateTime}}</a>
+    <hr>
+    <hr>
+    <a> •  {{data.productionCompanies}} </a>
+   
+    <a> • {{data.runtime}}min </a>
+</div>
+    <div class="container">
+        <br>
+        <br>
+        <youtube-player [videoId]="'n_vmzIgNaQY'" [height]="400" [width]="711" [playerVars]="playerVars" class="box"></youtube-player>
+        <div class="box">
+            <div > <a style="font-size: 36px;
+                font-weight: 700;
+                line-height: 2.5rem;">
+                {{this.data.title}}</a>
+                <br>
+                <b>{{this.data.tagline}}</b>
+            </div> 
+            <hr>
+            <div class="container" style="align-items: center;">  <a style="font-weight: 500; font-size: 24px;">Released on: {{this.data.releaseDate |dateTime}}</a></div> 
+            <hr>
+            <div class="container" style="align-items: center;">
+                 <a style="font-weight: 500; font-size: 24px;">Critics Score {{this.data.voteAverage}}</a>
+                 <a style="font-weight: 500; font-size: 24px;">{{this.data | description}}</a>
+                </div> 
+            
+            <hr>
+            <div class="container" style="align-items: center;"> 
+                <a style="font-weight: 500; font-size: 24px;">User Score  {{this.data.voteAverage}}</a>
+                <a style="font-weight: 500; font-size: 24px;">{{this.data | description}}</a>
+            
+            </div> 
+      
+            <hr>
+            <div class="container" style="align-items: center;">  
+                <a style="font-weight: 500; font-size: 24px;">My Score  {{this.data.voteAverage}}</a></div> 
+            </div>
+        <br>
+
+    </div> 
+    <div class="box">
+        <a> Summary</a>
+        <p>{{this.data.overview}}</p> 
+        <a style="align-content: left; width: match-parent;">
+            {{this.data.genres}}
+        </a>
+    </div>
+
+      
+   
+    <div class="list">
+        <app-critic-card [review]="item" *ngFor="let item of reviews"></app-critic-card>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <div class="container" >
+        <div class="user-review-list" style="width: 50%;">
+            <a style="font-size: 36px; font-weight: 500; "> User Reviews</a>
+            <app-critic-card [review]="item" *ngFor="let item of reviews" style="width: 100%; max-width: 100%;"></app-critic-card>
+        </div>
+        <div class="user-review-list " style="width: 50%;" >
+            <a style="font-size: 36px; font-weight: 500; "> Critic Reviews</a>
+            <app-critic-card [review]="item" *ngFor="let item of reviews" style="width: 100%;"></app-critic-card>
+        </div>
+    </div>
+    
+    <div>
+        <a>Details</a>
+        <hr>
+        <div class="container">
+          
+            <div class="box">
+                    <div class="box"><a>Production Company</a> {{this.data.productionCompanies}}</div>
+                    <div class="box"><a>Runtime</a> {{this.data.runtime}}</div>
+                    <div class="box"><a>Release date</a> {{this.data.releaseDate | dateTime}} min</div>
+                    <div class="box"><a>Genres</a> {{this.data.genres}}</div>
+                    <div class="box"><a>Budget</a> {{this.data.budget}}</div>
+                    <div class="box"><a>Homepage </a>   <a style="font-weight: 400;" href="{{this.data.homepage}}">{{this.data.homepage}}</a></div>
+            </div>
+    
+        </div>
+    </div>
+    
