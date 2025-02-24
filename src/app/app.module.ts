@@ -7,35 +7,42 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AdminUserPageComponent } from './admin-user-page/admin-user-page.component';
 import { AdminItemPageComponent } from './admin-item-page/admin-item-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MoviesComponent } from './movies/movies.component';
 import { MusicComponent } from './music/music.component';
 import { GamesComponent } from './games/games.component';
 import { RegisterComponent } from './register/register.component';
 import { AboutComponent } from './about/about.component';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {FormsModule} from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms'; // Add this line
-
-import {MatCardModule} from '@angular/material/card';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatCardModule } from '@angular/material/card';
 import { ItemCarouselComponent } from './item-carousel/item-carousel.component';
 import { FooterComponent } from './footer/footer.component';
 import { YouTubePlayer } from '@angular/youtube-player';
 import { MediaPageComponent } from './media-page/media-page.component';
 import { CriticCardComponent } from './critic-card/critic-card.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatError } from '@angular/material/form-field';
 import { MatIconButton } from '@angular/material/button';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviePageComponent } from './movie-page/movie-page.component';
 import { AlbumPageComponent } from './album-page/album-page.component';
-import { DateTimePipe } from "./date-time.pipe";
+import { DateTimePipe } from './date-time.pipe';
 import { DescriptionPipe } from './description.pipe';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ReviewComponent } from './review/review.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatListModule } from '@angular/material/list'; // Optional, for displaying the suggestions
+import { SearchComponent } from './search/search.component';
+import { NumberSeparatorPipe } from './number-separator.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,8 +62,8 @@ import { DescriptionPipe } from './description.pipe';
     LoginComponent,
     MoviePageComponent,
     AlbumPageComponent,
-    
-    
+    ReviewComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,11 +83,14 @@ import { DescriptionPipe } from './description.pipe';
     ReactiveFormsModule,
     HttpClientModule,
     DateTimePipe,
-    DescriptionPipe
-],
+    DescriptionPipe,
+    MatSnackBarModule,
+    MatSliderModule,
+    MatAutocompleteModule,
+    MatListModule,
+    NumberSeparatorPipe,
+  ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-    
- }
+export class AppModule {}

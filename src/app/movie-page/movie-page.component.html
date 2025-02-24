@@ -1,86 +1,86 @@
-<div class="container" style="background-color: green;"> 
-    <a> • {{data.releaseDate | dateTime}}</a>
-    <hr>
-    <hr>
-    <a> •  {{data.productionCompanies}} </a>
-   
-    <a> • {{data.runtime}}min </a>
+<div class="header-container">
+  <a> • {{ data.releaseDate | dateTime }}</a>
+  <hr />
+
+  <a> • {{ data.productionCompanies.split(",")[0] }} </a>
+  <hr />
+  <a> • {{ data.runtime }}min </a>
 </div>
-    <div class="container">
-        <br>
-        <br>
-        <youtube-player [videoId]="'n_vmzIgNaQY'" [height]="400" [width]="711" [playerVars]="playerVars" class="box"></youtube-player>
-        <div class="box">
-            <div > <a style="font-size: 36px;
-                font-weight: 700;
-                line-height: 2.5rem;">
-                {{this.data.title}}</a>
-                <br>
-                <b>{{this.data.tagline}}</b>
-            </div> 
-            <hr>
-            <div class="container" style="align-items: center;">  <a style="font-weight: 500; font-size: 24px;">Released on: {{this.data.releaseDate |dateTime}}</a></div> 
-            <hr>
-            <div class="container" style="align-items: center;">
-                 <a style="font-weight: 500; font-size: 24px;">Critics Score {{this.data.voteAverage}}</a>
-                 <a style="font-weight: 500; font-size: 24px;">{{this.data | description}}</a>
-                </div> 
-            
-            <hr>
-            <div class="container" style="align-items: center;"> 
-                <a style="font-weight: 500; font-size: 24px;">User Score  {{this.data.voteAverage}}</a>
-                <a style="font-weight: 500; font-size: 24px;">{{this.data | description}}</a>
-            
-            </div> 
-      
-            <hr>
-            <div class="container" style="align-items: center;">  
-                <a style="font-weight: 500; font-size: 24px;">My Score  {{this.data.voteAverage}}</a></div> 
-            </div>
-        <br>
+<div class="game-container">
+  <br />
+  <br />
+  <youtube-player
+    [videoId]="this.data.trailer"
+    [width]="640"
+    [height]="360"
+    [playerVars]="playerVars"
+    class="box"
+  ></youtube-player>
 
-    </div> 
-    <div class="box">
-        <a> Summary</a>
-        <p>{{this.data.overview}}</p> 
-        <a style="align-content: left; width: match-parent;">
-            {{this.data.genres}}
-        </a>
-    </div>
+  <div class="box">
+    <h1>{{ this.data.title }}</h1>
+    <div class="h3-padding"></div>
+    <h3>{{ this.data.tagline }}</h3>
+    <hr class="container-separator" />
 
-      
-   
-    <div class="list">
-        <app-critic-card [review]="item" *ngFor="let item of reviews"></app-critic-card>
+    <h3>Released on: {{ this.data.releaseDate | dateTime }}</h3>
+
+    <div class="h3-padding"></div>
+    <h3>Critics Score: {{ this.data | description }}</h3>
+    <h3 *ngIf="this.data.finalGrade > 0">
+      Final Grade: {{ this.data.finalGrade | number: "1.1-1" }}
+    </h3>
+    <h3 *ngIf="this.data.finalGrade > 0">
+      User Score: {{ this.data.finalGrade | number: "1.1-1" }}
+    </h3>
+
+    <div class="h3-padding">
+      <h3 *ngIf="this.myReview != null">My Score: {{ this.myReview.grade }}</h3>
+      <h3 *ngIf="this.myReview == null">You have not scored this game yet.</h3>
+      <app-critic-card
+        *ngIf="this.myReview != null"
+        [review]="this.myReview"
+        [myReview]="this.myReview != null"
+      ></app-critic-card>
+      <button mat-button *ngIf="this.myReview == null" (click)="leaveReview()">
+        Leave a Review
+      </button>
     </div>
-    <br>
-    <br>
-    <hr>
-    <div class="container" >
-        <div class="user-review-list" style="width: 50%;">
-            <a style="font-size: 36px; font-weight: 500; "> User Reviews</a>
-            <app-critic-card [review]="item" *ngFor="let item of reviews" style="width: 100%; max-width: 100%;"></app-critic-card>
-        </div>
-        <div class="user-review-list " style="width: 50%;" >
-            <a style="font-size: 36px; font-weight: 500; "> Critic Reviews</a>
-            <app-critic-card [review]="item" *ngFor="let item of reviews" style="width: 100%;"></app-critic-card>
-        </div>
+  </div>
+</div>
+
+<hr />
+<h2 class="header-container" style="text-align: center">Reviews</h2>
+<div class="list">
+  <app-critic-card
+    [review]="item"
+    *ngFor="let item of reviews | slice: 0 : reviewCnt"
+  ></app-critic-card>
+
+  <button mat-button *ngIf="reviews.length > 3" (click)="showAll()">
+    {{ this.reviewCnt == 3 ? "Show All Reviews" : "Collapse" }}
+  </button>
+</div>
+
+<div class="hr3-padding">
+  <hr />
+  <div class="container">
+    <div class="box-1">
+      <a>Production Company :</a> {{ this.data.productionCompanies }}
     </div>
-    
-    <div>
-        <a>Details</a>
-        <hr>
-        <div class="container">
-          
-            <div class="box">
-                    <div class="box"><a>Production Company</a> {{this.data.productionCompanies}}</div>
-                    <div class="box"><a>Runtime</a> {{this.data.runtime}}</div>
-                    <div class="box"><a>Release date</a> {{this.data.releaseDate | dateTime}} min</div>
-                    <div class="box"><a>Genres</a> {{this.data.genres}}</div>
-                    <div class="box"><a>Budget</a> {{this.data.budget}}</div>
-                    <div class="box"><a>Homepage </a>   <a style="font-weight: 400;" href="{{this.data.homepage}}">{{this.data.homepage}}</a></div>
-            </div>
-    
-        </div>
+    <div class="box-1"><a>Runtime :</a> {{ this.data.runtime }} min</div>
+    <div class="box-1">
+      <a>Release date :</a> {{ this.data.releaseDate | dateTime }}
     </div>
-    
+    <div class="box-1"><a>Genres :</a> {{ this.data.genres }}</div>
+    <div class="box-1">
+      <a>Budget :</a> {{ this.data.budget | numberSeparator }} USD
+    </div>
+    <div class="box-1">
+      <a>Homepage :</a>
+      <a style="font-weight: 400" href="{{ this.data.homepage }}">{{
+        this.data.homepage
+      }}</a>
+    </div>
+  </div>
+</div>

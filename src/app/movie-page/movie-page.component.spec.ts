@@ -8,9 +8,8 @@ describe('MoviePageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MoviePageComponent]
-    })
-    .compileComponents();
+      imports: [MoviePageComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MoviePageComponent);
     component = fixture.componentInstance;

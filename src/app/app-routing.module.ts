@@ -13,53 +13,35 @@ import { MoviePageComponent } from './movie-page/movie-page.component';
 import { AlbumPageComponent } from './album-page/album-page.component';
 const routes: Routes = [
   {
-  path: "",
-  component: HomePageComponent
-}, 
- { path: 'admin/users',
-  component: AdminUserPageComponent
- }
- ,{path: 'movies',
-  component: MoviesComponent
- },
+    path: '',
+    component: HomePageComponent,
+  },
+  { path: 'admin/users', component: AdminUserPageComponent },
+  { path: 'movies', component: MoviesComponent },
 
- {path: 'games',
-  component: GamesComponent
- },
+  { path: 'games', component: GamesComponent },
 
- {path: 'music',
-  component: MusicComponent
- },
- {path: 'register',
-  component: RegisterComponent
- },
- {path: 'about',
-  component: AboutComponent
- },
+  { path: 'music', component: MusicComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'about', component: AboutComponent },
 
- {
-  path: 'game/:id',
-  component: MediaPageComponent
- },
- {
-  path: 'login',
-  component: LoginComponent
- },
- {path: 'movie/:id',
-  component: MoviePageComponent
- },
- {
-  path: 'album/:id',
-  component: AlbumPageComponent
- }
- 
+  {
+    path: 'game/:id',
+    component: MediaPageComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  { path: 'movie/:id', component: MoviePageComponent },
+  {
+    path: 'album/:id',
+    component: AlbumPageComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule {
-
-
- }
+export class AppRoutingModule {}

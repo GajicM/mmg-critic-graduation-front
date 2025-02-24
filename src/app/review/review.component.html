@@ -1,0 +1,48 @@
+<div
+  style="
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border: 1px #3666;
+  "
+>
+  <h1>Leave a Review</h1>
+  <h2>Set a Rating</h2>
+  <mat-slider
+    min="1"
+    max="10"
+    step="1"
+    style="width: 300px"
+    showTickMarks
+    discrete
+  >
+    <input matSliderThumb [(ngModel)]="review.grade" />
+  </mat-slider>
+  <br />
+  <hr />
+
+  <label>Rating {{ this.review.grade | description }}</label>
+  <br />
+  <br />
+  <hr />
+  <h2>Leave a Comment here</h2>
+  <mat-form-field appearance="outline" style="width: 400px; height: 300px">
+    <mat-label>Comment</mat-label>
+    <textarea
+      style="height: 250px"
+      matInput
+      [(ngModel)]="review.comment"
+      placeholder="Ex. It makes me feel..."
+    ></textarea>
+  </mat-form-field>
+
+  <br />
+  <button mat-raised-button color="primary" (click)="onSubmit()">
+    Publish
+  </button>
+  <br />
+  <br />
+</div>

@@ -1,10 +1,26 @@
+:host {
+  height: calc(100vh-128px);
+  padding: 0 2rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 1.5rem 0;
+  font-weight: 600;
+}
+
+a {
+  font-size: 1.5rem;
+}
+
+.other-headers {
+  font-size: 2rem;
+  margin-top: 5rem;
+}
+
 hr {
-    border: none;
-    height: 3px;
-    /* Set the hr color */
-    color: #333;  /* old IE */
-    background-color: #333;  /* Modern Browsers */
-  }
-  a{
-    font-weight: 700;
-  }
+  height: 3px;
+  margin: 1.5rem 0;
+  color: #333; /* old IE */
+  background-color: #333; /* Modern Browsers */
+}

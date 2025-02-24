@@ -1,37 +1,50 @@
-<div style="padding-top: 5%;">
-    <h1 style="font-size: 6rem; font-weight: 600; text-shadow: 5px 5px 5px pink; ">
-            MOVIES
-    </h1>
-    <br>
-    <a style="font-size: 1.5rem;"> Find your next captivating movie moment</a>
+<div class="header">
+  <h1>Movies</h1>
+  <a> Find your next captivating movie moment</a>
 </div>
-<br>
-<br>
-<a style="font-size:1.5rem">New Releases</a>
-<hr>
-<app-item-carousel [items]="newMovies"  [imgSource]="'https://image.tmdb.org/t/p/w500'" [ref]="'movie'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
 
-<br>
-<br>
-<a style="font-size:1.5rem">Top Rated</a>
-<hr>
-<app-item-carousel [items]="topRatedMovies" [imgSource]="'https://image.tmdb.org/t/p/w500'" [ref]="'movie'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
+<h2 class="other-headers">New Releases</h2>
+<hr />
+<app-item-carousel
+  [items]="newMovies"
+  [imgSource]="'https://image.tmdb.org/t/p/w500'"
+  [ref]="'movie'"
+  (itemClicked)="onItemClicked($event)"
+></app-item-carousel>
 
-<br>
-<br>
-<a style="font-size:1.5rem">Popular right now</a>
-<hr>
-<app-item-carousel [items]="mostPopularMovies"  [imgSource]="'https://image.tmdb.org/t/p/w500'"  [ref]="'movie'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
+<h2 class="other-headers">Top Rated</h2>
+<hr />
+<app-item-carousel
+  [items]="topRatedMovies"
+  [imgSource]="'https://image.tmdb.org/t/p/w500'"
+  [ref]="'movie'"
+  (itemClicked)="onItemClicked($event)"
+></app-item-carousel>
 
-<br>
+<h2 class="other-headers">Popular right now</h2>
+<hr />
+<app-item-carousel
+  [items]="mostPopularMovies"
+  [imgSource]="'https://image.tmdb.org/t/p/w500'"
+  [ref]="'movie'"
+  (itemClicked)="onItemClicked($event)"
+></app-item-carousel>
 
-<br>
-<a style="font-size:1.5rem">Latest trailers</a>
-<hr>
+<h2 class="other-headers">Latest Trailers</h2>
+<hr />
 
-<youtube-player [videoId]="'n_vmzIgNaQY'"  [height]="400" [width]="600" [playerVars]="playerVars"></youtube-player>
-<br>
-<br>
-<a style="font-size:1.5rem">Marvel Studios movies, ranked</a>
-<hr>
-<app-item-carousel [items]="poularMoviesByProduction" [imgSource]="'https://image.tmdb.org/t/p/w500'"  [ref]="'movie'" (itemClicked)="onItemClicked($event)"></app-item-carousel>
+<youtube-player
+  [videoId]="this.trailer_id"
+  [height]="400"
+  [width]="600"
+  [playerVars]="playerVars"
+></youtube-player>
+
+<h2 class="other-headers">Marvel Studios movies, ranked</h2>
+<hr />
+<app-item-carousel
+  [items]="poularMoviesByProduction"
+  [imgSource]="'https://image.tmdb.org/t/p/w500'"
+  [ref]="'movie'"
+  (itemClicked)="onItemClicked($event)"
+></app-item-carousel>

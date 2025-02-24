@@ -1,64 +1,101 @@
-<div> 
-    <a> asudiasduasnd </a>
-    </div>
-    <div class="container">
-        <br>
-        <br>
-        <youtube-player [videoId]="'n_vmzIgNaQY'" [height]="400" [width]="711" [playerVars]="playerVars" class="box"></youtube-player>
-        <div class="box">
-            <div > <a style="font-size: 36px;
-                font-weight: 700;
-                line-height: 2.5rem;">
-               {{this.data.title}}</a></div>
-            <hr>
-            <div class="container" style="align-items: center;"> 
-               <h3>{{this.data.artist.name}}</h3>
-            </div> 
-            <hr>
-            <div class="container" style="align-items: center;">  <a style="font-weight: 500; font-size: 24px;">Released on: {{this.data.releaseDate}}</a></div> 
-            <hr>
-            <div class="container" style="align-items: center;"> <a style="font-weight: 500; font-size: 24px;">Critics Score: {{this.data.finalGrade}}</a></div> 
-      
-            <hr>
-            <div class="container" style="align-items: center;"> <a style="font-weight: 500; font-size: 24px;">User Score {{this.data.finalGrade}}</a></div> 
-      
-            <hr>
-            <div class="container" style="align-items: center;">  <a style="font-weight: 500; font-size: 24px;">My Score </a></div> 
-      
-        </div>
-        <br>
-    </div>
-    <div class="list">
-        <app-critic-card  [review]="item" *ngFor="let item of reviews"></app-critic-card>
-    </div>
-    <br>
-    <br>
-    <hr>
-    <div class="container" >
-        <div class="user-review-list" style="width: 50%;">
-            <a style="font-size: 36px; font-weight: 500; "> User Reviews</a>
-            <app-critic-card [review]="item" *ngFor="let item of reviews" style="width: 100%; max-width: 100%;"></app-critic-card>
-        </div>
-        <div class="user-review-list " style="width: 50%;" >
-            <a style="font-size: 36px; font-weight: 500; "> Critic Reviews</a>
-            <app-critic-card [review]="item" *ngFor="let item of reviews" style="width: 100%; "></app-critic-card>
-        </div>
-    </div>
-    
+<div class="header-container">
+  <a> • {{ data.releaseDate | dateTime }}</a>
+  <br />
+  <a> • {{ data.artist.name }} </a>
+  <hr />
+  <hr />
+  <a>
+    •
+    {{
+      data.artist.genres[0]
+        .replaceAll("\[", "")
+        .replaceAll("\]", "")
+        .replaceAll("'", "")
+    }}
+  </a>
+</div>
+<div class="game-container">
+  <br />
+  <br />
+  <img
+    [src]="
+      sanitazeUrl(
+        imgSource +
+          (data.imageUrl === undefined ? data.posterPath : data.imageUrl)
+      )
+    "
+    alt="Item Image"
+    height="300"
+    width="300"
+  />
+  <div class="box">
     <div>
-        <a>Details</a>
-        <hr>
-        <div class="container">
-            <div class="box"> 
-                <a> Summary</a>
-            </div>
-            <div class="box">
-                    <div class="box"> {{this.data.artist.name}}</div>
-                    <div class="box">Total Tracks {{this.data.totalTracks}}</div>
-                    <div class="box">Release Date {{this.data.releaseDate}}</div>
-                    <div class="box">Genres {{this.data.artist.genres}}</div>
-            </div>
-    
-        </div>
+      <a style="font-size: 36px; font-weight: 700; line-height: 2.5rem">
+        {{ this.data.title }}</a
+      >
     </div>
-    
+    <hr class="containter-separator" />
+    <div class="container" style="align-items: center">
+      <h3>{{ this.data.artist.name || null }}</h3>
+    </div>
+    <hr />
+    <div class="container" style="align-items: center">
+      <a style="font-weight: 500; font-size: 24px"
+        >Released on: {{ this.data.releaseDate | dateTime }}</a
+      >
+    </div>
+    <hr />
+    <div class="container" style="align-items: center">
+      <a style="font-weight: 500; font-size: 24px"
+        >Critics Score: {{ this.data.finalGrade | number: "1.1-1" }}</a
+      >
+    </div>
+
+    <hr />
+    <div class="container" style="align-items: center">
+      <a style="font-weight: 500; font-size: 24px"
+        >User Score {{ this.data.finalGrade | description }}</a
+      >
+    </div>
+
+    <hr />
+    <div class="container" style="align-items: center">
+      <a style="font-weight: 500; font-size: 24px">My Score </a>
+      <br />
+      <a *ngIf="this.myReview != null">{{ this.myReview.grade }}</a>
+      <button mat-button *ngIf="this.myReview == null" (click)="leaveReview()">
+        Leave a Review
+      </button>
+      <app-critic-card
+        *ngIf="this.myReview != null"
+        [myReview]="this.myReview != null"
+        [review]="this.myReview"
+      >
+      </app-critic-card>
+    </div>
+  </div>
+  <br />
+</div>
+
+<hr />
+<h2 class="header-container" style="text-align: center">Reviews</h2>
+<div class="list">
+  <app-critic-card
+    [review]="item"
+    *ngFor="let item of reviews | slice: 0 : 3"
+  ></app-critic-card>
+</div>
+
+<div class="h3-padding">
+  <hr />
+  <div class="container">
+    <div class="box">
+      <div class="box-1">Artist{{ this.data.artist.name }}</div>
+      <div class="box-1">Total Tracks {{ this.data.totalTracks }}</div>
+      <div class="box-1">
+        Release Date {{ this.data.releaseDate | dateTime }}
+      </div>
+      <div class="box-1">Genres {{ this.data.artist.genres }}</div>
+    </div>
+  </div>
+</div>

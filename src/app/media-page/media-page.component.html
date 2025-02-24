@@ -1,66 +1,87 @@
-<div> 
-<a> asudiasduasnd </a>
+<div class="header-container">
+  <hr />
+  <a>{{ data.developer }} </a>
 </div>
-<div class="container">
-    <br>
-    <br>
-    <youtube-player [videoId]="'n_vmzIgNaQY'" [height]="400" [width]="711" [playerVars]="playerVars" class="box"></youtube-player>
-    <div class="box">
-        <div > <a style="font-size: 36px;
-            font-weight: 700;
-            line-height: 2.5rem;">
-           {{this.data.title}}</a></div>
-        <hr>
-        <div class="container" style="align-items: center;"> 
-           <h3>{{this.data.platforms}}</h3>
-        </div> 
-        <hr>
-        <div class="container" style="align-items: center;">  <a style="font-weight: 500; font-size: 24px;">Released on: {{this.data.releaseDate}}</a></div> 
-        <hr>
-        <div class="container" style="align-items: center;"> <a style="font-weight: 500; font-size: 24px;">Critics Score: {{this.data.finalGrade}}</a></div> 
-  
-        <hr>
-        <div class="container" style="align-items: center;"> <a style="font-weight: 500; font-size: 24px;">User Score {{this.data.finalGrade}}</a></div> 
-  
-        <hr>
-        <div class="container" style="align-items: center;">  <a style="font-weight: 500; font-size: 24px;">My Score </a></div> 
-  
+
+<div class="game-container">
+  <!-- this.data.trailer-->
+  <youtube-player
+    [videoId]="this.data.trailer"
+    [width]="640"
+    [height]="360"
+    [playerVars]="playerVars"
+    class="box"
+  ></youtube-player>
+
+  <div class="box">
+    <h1>{{ this.data.title }}</h1>
+    <hr class="container-separator" />
+    <h3>Platforms: {{ this.data.platforms }}</h3>
+    <h3>Released on: {{ this.data.releaseDate | dateTime }}</h3>
+
+    <div class="h3-padding"></div>
+    <h3>Critics Score: {{ this.data | description }}</h3>
+    <h3 *ngIf="this.data.finalGrade > 0">
+      Final Grade: {{ this.data.finalGrade | number: "1.1-1" }}
+    </h3>
+    <h3 *ngIf="this.data.finalGrade > 0">
+      User Score: {{ this.data.finalGrade | number: "1.1-1" }}
+    </h3>
+
+    <div class="h3-padding">
+      <h3 *ngIf="this.userReview != null">
+        My Score: {{ this.userReview.grade }}
+      </h3>
+      <h3 *ngIf="this.userReview == null">
+        You have not scored this game yet.
+      </h3>
+      <button
+        mat-button
+        *ngIf="this.userReview == null"
+        (click)="leaveReview()"
+      >
+        Leave a Review
+      </button>
+      <app-critic-card
+        *ngIf="this.userReview != null"
+        [review]="this.userReview"
+        [myReview]="this.userReview != null"
+      ></app-critic-card>
     </div>
-    <br>
+  </div>
 </div>
+
 <div class="list">
-    <app-critic-card  [review]="item" *ngFor="let item of reviews"></app-critic-card>
-</div>
-<br>
-<br>
-<hr>
-<div class="container" >
-    <div class="user-review-list" style="width: 50%;">
-        <a style="font-size: 36px; font-weight: 500; "> User Reviews</a>
-        <app-critic-card [review]="item" *ngFor="let item of reviews" style="width: 100%; max-width: 100%;"></app-critic-card>
-    </div>
-    <div class="user-review-list " style="width: 50%;" >
-        <a style="font-size: 36px; font-weight: 500; "> Critic Reviews</a>
-        <app-critic-card [review]="item" *ngFor="let item of reviews" style="width: 100%; "></app-critic-card>
-    </div>
+  <app-critic-card
+    [review]="item"
+    *ngFor="let item of reviews | slice: 0 : 3"
+  ></app-critic-card>
 </div>
 
-<div>
-    <a>Details</a>
-    <hr>
-    <div class="container">
-        <div class="box"> 
-            <a> Summary</a>
-            <p>{{this.data.description}}</p>
-        </div>
-        <div class="box">
-            <div class="box">Total Tracks {{this.data.developer}}</div>
-         
-            <div class="box">Release Date {{this.data.releaseDate}}</div>
-            <div class="box">Genres {{this.data.gameGenres}}</div>
-            <div class="box">Platforms {{this.data.platforms}}</div>
-            <div class="box">Publisher {{this.data.publisher}}</div>
-        </div>
+<hr />
 
+<hr />
+<h2 class="header-container" style="text-align: center">Reviews</h2>
+<div class="list">
+  <app-critic-card
+    [review]="item"
+    *ngFor="let item of reviews | slice: 0 : 3"
+  ></app-critic-card>
+
+  <button mat-button *ngIf="reviews.length > 3">Show all reviews</button>
+</div>
+
+<div class="h3-padding">
+  <hr />
+  <div class="container">
+    <div class="box">
+      <div class="box-1">Developer: {{ this.data.developer }}</div>
+      <div class="box-1">
+        Release Date: {{ this.data.releaseDate | dateTime }}
+      </div>
+      <div class="box-1">Genres: {{ this.data.gameGenres }}</div>
+      <div class="box-1">Platforms: {{ this.data.platforms }}</div>
+      <div class="box-1">Publisher: {{ this.data.publisher }}</div>
     </div>
+  </div>
 </div>

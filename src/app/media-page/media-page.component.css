@@ -1,32 +1,77 @@
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: lightgreen;
 }
+
+.game-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+  border-radius: 0rem 0rem 1rem 1rem;
+  border: 0.1vw solid rgb(220, 220, 220);
+}
+
 .box {
-    flex: 1 1 300px; /* Grow, shrink, and basis */
-    margin: 10px;
-    padding: 20px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    text-align: center;
+  flex: 1 1 1rem;
+  padding: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 1.5rem 0;
+  font-weight: 600;
+}
+
+h3 {
+  margin-bottom: 1%;
+}
+
+.h3-padding {
+  margin-top: 3%;
+}
+
+.container-separator {
+  height: 3px;
+  margin: 1.5rem 0;
+  color: #333; /* old IE */
+  background-color: #333; /* Modern Browsers */
 }
 
 .list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: auto;
-    gap: 10px; /* Optional: Adds spacing between grid items */
-    align-items: center;
-    justify-items: center;
-    cursor: grab;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  cursor: grab;
 }
-.user-review-list{
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-auto-rows: auto;
-    gap: 10px; /* Optional: Adds spacing between grid items */
-    align-items: center;
-    justify-items: center;
-    width: fit-content;
-    }
+
+.review-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 1.5rem;
+  justify-content: space-around;
+}
+
+.user-review-list {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-auto-rows: auto;
+  width: 50%;
+  align-items: center;
+  justify-items: center;
+}
+
+.box-1 {
+  flex: 1 1 300px; /* Grow, shrink, and basis */
+  margin: 10px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  text-align: center;
+}

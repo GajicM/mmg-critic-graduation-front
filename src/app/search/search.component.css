@@ -1,0 +1,10 @@
+.search-container {
+  display: flex;
+  justify-content: center; /* Center align horizontally */
+  width: 100%; /* Full width */
+}
+
+mat-form-field {
+  flex: 1; /* Take up available space */
+  max-width: 600px; /* Optional: maximum width */
+}

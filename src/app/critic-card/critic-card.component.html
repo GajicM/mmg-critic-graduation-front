@@ -1,9 +1,19 @@
-    <mat-card class="product-card">
-      <mat-card-header style="align-self: center;" >
-          <mat-card-title>{{ review.reviewer }}</mat-card-title>
-          <mat-card-subtitle>{{ review.rating | currency }}</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-            <a>{{review.comment}}</a>
-        </mat-card-content>
-    </mat-card>
+<mat-card class="product-card">
+  <mat-card-header style="align-self: center; justify-content: center">
+    <mat-card-title>{{ review.username }}</mat-card-title>
+    <mat-card-subtitle
+      >{{ review.grade }} {{ review.grade | description }}</mat-card-subtitle
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <a>{{ review.comment }}</a>
+  </mat-card-content>
+  <button
+    style="align-self: center"
+    mat-button
+    *ngIf="this.myReview"
+    (click)="updateReview()"
+  >
+    Update the review
+  </button>
+</mat-card>

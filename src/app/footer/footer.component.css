@@ -1,44 +1,43 @@
 .footer {
-    background-color: #f8f8f8;
-    padding: 20px;
-    text-align: left;
-  }
-  
-  .footer-columns {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .footer-column {
-    flex: 1;
-    padding: 0 10px;
-  }
-  
-  .footer-column h4 {
-    margin-bottom: 15px;
-    font-size: 16px;
-    color: #333;
-  }
-  
-  .footer-link {
-    display: block;
-    margin-bottom: 10px;
-    text-decoration: none;
-    color: #333;
-    font-size: 14px;
-  }
-  
-  .footer-link:hover {
-    color: #007bff;
-  }
-  hr {
-    border: none;
-    height: 10px;
-    /* Set the hr color */
-    background: linear-gradient(to right, 
-    green, yellow, red);
-    color: #333;  /* old IE */
-    background-color: #333;  /* Modern Browsers */
-  }
+  background-color: #f8f8f8;
+  padding: 20px;
+  text-align: left;
+}
+
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1;
+  padding: 0 10px;
+}
+
+.footer-column h4 {
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #333;
+}
+
+.footer-link {
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+.footer-link:hover {
+  color: #007bff;
+}
+hr {
+  border: none;
+  height: 10px;
+  /* Set the hr color */
+  background: linear-gradient(to right, green, yellow, red);
+  color: #333; /* old IE */
+  background-color: #333; /* Modern Browsers */
+}

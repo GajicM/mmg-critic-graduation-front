@@ -1,0 +1,23 @@
+<div class="search-container">
+  <mat-form-field appearance="fill">
+    <input
+      type="text"
+      matInput
+      [formControl]="searchControl"
+      [matAutocomplete]="auto"
+      placeholder="Search here"
+    />
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let option of filteredOptions | async"
+        [value]="option.title"
+        [routerLink]="'/' + getType(option.type) + '/' + option.id"
+      >
+        {{ option.title }}
+        <div>
+          <a style="color: grey; font-size: 14px">{{ option.type }}</a>
+        </div>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</div>

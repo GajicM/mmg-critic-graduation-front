@@ -8,7 +8,7 @@ describe('YoutubeEmbedComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [YoutubePlayer]
+      declarations: [YoutubePlayer],
     });
     fixture = TestBed.createComponent(YoutubePlayer);
     component = fixture.componentInstance;

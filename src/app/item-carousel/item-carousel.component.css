@@ -1,75 +1,70 @@
 .product-list {
-    display: flex;
-    overflow-x: auto;
-    white-space: nowrap;
-    align-items: center;
-    align-self: center;
-    align-content: center;
-    text-align: center;
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  text-align: center;
 }
-  
-  .product-card {
-    display: inline-block;
-    width: 200px; /* Set your desired fixed width */
-    max-width: 200px;
-    min-width: 200px;
-    margin-right: 20px; /* Add some space between the cards */
-    box-sizing: border-box;
-    
-  }
-  
- 
-  mat-card-title{
-    white-space: nowrap;        /* Prevents the text from wrapping to the next line */
-    overflow: hidden;           /* Ensures that the overflowing text is hidden */
-    text-overflow: ellipsis;    /* Adds the ellipsis (...) at the end of the truncated text */
-    max-width: 200px;
-    padding-left: .5em;
-    padding-right: .5em;
-  }
-  a {
-    text-decoration: none;
-    font-weight: bold;
-    padding: 0.5vmin;
-    border-radius: 10px;
-  }
-  b{
-    padding-left: 2%;
-  }
-  .product-card mat-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 400px;
-    position: relative;
-    cursor: pointer;
-  }
-  
-  .card-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    overflow: hidden;
-  }
-  
-  .card-content {
-    flex-grow: 1; /* Ensures the content takes up all the available space except for the subtitle */
-  }
-  
-  
-  .parent {
-    position: relative;
-    
-  }
-  
-  .child {
-    position: absolute;
-    bottom: 1%;
-    width: match-parent;
-    justify-self: center;
-    text-align: center;
-    place-self: center;
-    justify-content: center;
-    text-justify: center;
-  }
-  
+
+.product-card {
+  display: inline-block;
+  width: 200px; /* Set your desired fixed width */
+  max-width: 200px;
+  min-width: 200px;
+  margin-right: 20px; /* Add some space between the cards */
+  box-sizing: border-box;
+}
+
+mat-card-title {
+  white-space: nowrap; /* Prevents the text from wrapping to the next line */
+  overflow: hidden; /* Ensures that the overflowing text is hidden */
+  text-overflow: ellipsis; /* Adds the ellipsis (...) at the end of the truncated text */
+  max-width: 200px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+a {
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5vmin;
+  border-radius: 10px;
+}
+b {
+  padding-left: 2%;
+}
+.product-card mat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 400px;
+  position: relative;
+  cursor: pointer;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.card-content {
+  flex-grow: 1; /* Ensures the content takes up all the available space except for the subtitle */
+}
+
+.parent {
+  position: relative;
+}
+
+.child {
+  position: absolute;
+  bottom: 1%;
+  width: match-parent;
+  justify-self: center;
+  text-align: center;
+  place-self: center;
+  justify-content: center;
+  text-justify: center;
+}

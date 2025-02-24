@@ -1,38 +1,40 @@
-<mat-toolbar
-	class="navbar mat-elevation-z2"
-	color="primary"
-    style="height: 7%; padding-left: 10%; padding-right: 10%;"
-	
->
-	<a  disabled="true"
-		mat-button
-		routerLink="/"
-		class="icon"
-        class="font-size-large"
-	>
-		<img
-			src="../../assets/logo.jpg"
-			alt="Logo"
-			height="40"
-			width="40"
-		/>
-	</a>
-    <button mat-button class="font-size-large" [routerLink]="'/'">Home</button>
-    
-    <button mat-button class="font-size-large" [routerLink]="'/music'">Music</button>
-    
-    <button mat-button class="font-size-large" [routerLink]="'/movies'">Movies</button>
-    
-    <button mat-button class="font-size-large" [routerLink]="'/games'">Games</button>
-    
-    <span class="example-fill-remaining-space"></span>
-    <mat-form-field class="example-full-width" style="margin-top: 1%;">
-        <input matInput placeholder="Search Movies,Games,Music etc" >
-    </mat-form-field>
-    
-    <span class="example-fill-remaining-space"></span>
-    <button mat-button class="font-size-large" [routerLink]="'/register'" >Register</button>
-    
-    
-	
+<mat-toolbar color="primary" class="navbar mat-elevation-z2">
+  <div>
+    <a disabled="true" mat-button routerLink="/" class="icon">
+      <img src="../../assets/logo.jpg" alt="Logo" height="40" width="40" />
+    </a>
+
+    <a mat-button [routerLink]="'/'"> Home </a>
+
+    <a mat-button [routerLink]="'/music'"> Music </a>
+
+    <a mat-button [routerLink]="'/movies'"> Movies </a>
+
+    <a mat-button [routerLink]="'/games'"> Games </a>
+  </div>
+
+  <div class="padding"></div>
+
+  <div class="search-box">
+    <app-search></app-search>
+  </div>
+
+  <div class="padding"></div>
+
+  <div>
+    <a
+      mat-button
+      (click)="this.click()"
+      *ngIf="!this.authService.loggedInStatus"
+    >
+      Register
+    </a>
+    <a
+      mat-button
+      (click)="this.logout()"
+      *ngIf="this.authService.loggedInStatus"
+    >
+      Logout
+    </a>
+  </div>
 </mat-toolbar>
