@@ -59,7 +59,6 @@ export class ItemCarouselComponent {
   @Output() itemClicked = new EventEmitter<any>();
   onItemClick(item: any): void {
     this.itemClicked.emit(item);
-    console.log('/' + this.ref + '/' + item.id);
     this.router.navigate(['/' + this.ref, item.id]);
   }
   sanitazeUrl(url: string): SafeUrl {

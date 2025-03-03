@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { YoutubePlayer } from '../youtube-embed/youtube-embed.component';
 import { GamesServiceService } from '../services/games-service.service';
 import { ActivatedRoute, Route } from '@angular/router';
@@ -23,6 +23,8 @@ export class MediaPageComponent {
   };
   reviews: any[] = [];
   userReview: any;
+  userId: any = localStorage.getItem('id');
+  reviewCnt: number = 3;
   constructor(
     private gamesService: GamesServiceService,
     private route: ActivatedRoute,
@@ -36,11 +38,10 @@ export class MediaPageComponent {
         ytSearch
           .ytSearch(game.title + ' game trailer')
           .subscribe((res: any) => {
-            console.log(res.items[0].id.videoId);
-            console.log(res);
             this.data.trailer = res.items[0].id.videoId;
           });
         this.reviews = game.reviews;
+
         if (this.reviews.length === 0) {
           this.reviews = [
             { comment: 'No reviews yet', rating: 0, reviewer: '' },
@@ -49,7 +50,6 @@ export class MediaPageComponent {
         this.reviewService
           .addFakeReviews(this.route.snapshot.params['id'], 'GAME')
           .subscribe((res: any) => {
-            console.log(res);
             this.reviews = res;
             this.gamesService
               .getGameById(this.route.snapshot.params['id'])
@@ -67,16 +67,18 @@ export class MediaPageComponent {
       this.reviewService
         .getReview(userId, this.route.snapshot.params['id'], 'GAME')
         .subscribe((review: any) => {
-          console.log('here');
-          console.log(review);
           this.userReview = review;
         });
     }
   }
+  showAll() {
+    if (this.reviewCnt == 3) this.reviewCnt = (this.reviews.length % 30) - 1;
+    else this.reviewCnt = 3;
+  }
 
   leaveReview() {
     let dialogRef = this.dialog.open(ReviewComponent, {
-      height: '600px',
+      minHeight: '9900px',
       width: '500px',
       data: { itemId: this.route.snapshot.params['id'], type: 'GAME' },
     });
@@ -91,6 +93,7 @@ export class MediaPageComponent {
               { comment: 'No reviews yet', rating: 0, reviewer: '' },
             ];
           }
+          this.getMyReview();
         });
     });
   }

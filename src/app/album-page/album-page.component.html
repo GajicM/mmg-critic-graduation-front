@@ -62,8 +62,15 @@
     <div class="container" style="align-items: center">
       <a style="font-weight: 500; font-size: 24px">My Score </a>
       <br />
-      <a *ngIf="this.myReview != null">{{ this.myReview.grade }}</a>
-      <button mat-button *ngIf="this.myReview == null" (click)="leaveReview()">
+      <h3 *ngIf="this.myReview == null">You have not scored this album yet.</h3>
+      <h3 *ngIf="this.myReview == null && this.userId == undefined">
+        Please log in to score this game.
+      </h3>
+      <button
+        mat-button
+        *ngIf="this.myReview == null && this.userId != undefined"
+        (click)="leaveReview()"
+      >
         Leave a Review
       </button>
       <app-critic-card
@@ -79,11 +86,16 @@
 
 <hr />
 <h2 class="header-container" style="text-align: center">Reviews</h2>
-<div class="list">
-  <app-critic-card
-    [review]="item"
-    *ngFor="let item of reviews | slice: 0 : 3"
-  ></app-critic-card>
+<div style="justify-items: center">
+  <div class="list">
+    <app-critic-card
+      [review]="item"
+      *ngFor="let item of reviews | slice: 0 : reviewCnt"
+    ></app-critic-card>
+  </div>
+  <button mat-button *ngIf="reviews.length > 3" (click)="showAll()">
+    {{ this.reviewCnt == 3 ? "Show All Reviews" : "Collapse" }}
+  </button>
 </div>
 
 <div class="h3-padding">

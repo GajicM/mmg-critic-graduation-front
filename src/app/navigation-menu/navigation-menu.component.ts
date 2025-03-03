@@ -18,7 +18,6 @@ export class NavigationMenuComponent {
   }
 
   click() {
-    console.log('Register');
     let dialogRef = this.dialog.open(RegisterComponent, {
       height: '600px',
       width: '600px',

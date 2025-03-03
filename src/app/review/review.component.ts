@@ -28,7 +28,6 @@ export class ReviewComponent {
         .addReview(this.review, this.data.type, this.data.itemId)
         .subscribe({
           next: (res: any) => {
-            console.log(res);
             this.dialog.closeAll();
           },
           error: (err: any) => {
@@ -36,10 +35,8 @@ export class ReviewComponent {
           },
         });
     } else {
-      console.log(this.review);
       this.reviewService.updateReview(this.review).subscribe({
         next: (res: any) => {
-          console.log(res);
           this.dialog.closeAll();
         },
         error: (err: any) => {

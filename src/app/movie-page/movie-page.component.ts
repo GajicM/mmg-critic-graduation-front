@@ -22,6 +22,7 @@ export class MoviePageComponent implements OnInit {
   data: any;
   myReview: any;
   reviewCnt: number = 3;
+  userId: any = localStorage.getItem('id');
   constructor(
     private movieService: MmgCriticBackendService,
     private route: ActivatedRoute,
@@ -39,8 +40,6 @@ export class MoviePageComponent implements OnInit {
           this.searchService
             .ytSearch(game.title + ' movie trailer')
             .subscribe((res: any) => {
-              console.log(res.items[0].id.videoId);
-              console.log(res);
               this.data.trailer = res.items[0].id.videoId;
             });
           if (this.reviews.length === 0) {
@@ -50,11 +49,9 @@ export class MoviePageComponent implements OnInit {
             this.reviewService
               .addFakeReviews(this.route.snapshot.params['id'], 'MOVIE')
               .subscribe((res: any) => {
-                console.log(res);
                 this.reviews = res;
               });
           }
-          console.log(this.data);
         });
       this.getMyReview();
     });
@@ -68,15 +65,15 @@ export class MoviePageComponent implements OnInit {
         .getReview(userId, this.route.snapshot.params['id'], 'MOVIE')
         .subscribe((review: any) => {
           this.myReview = review;
-          console.log(this.myReview);
         });
     }
   }
 
   leaveReview() {
     let dialogRef = this.dialog.open(ReviewComponent, {
-      height: '600px',
+      height: '800px',
       width: '500px',
+
       data: { itemId: this.route.snapshot.params['id'], type: 'MOVIE' },
     });
     dialogRef.afterClosed().subscribe((result) => {
@@ -90,6 +87,7 @@ export class MoviePageComponent implements OnInit {
               { comment: 'No reviews yet', rating: 0, reviewer: '' },
             ];
           }
+          this.getMyReview();
         });
     });
   }

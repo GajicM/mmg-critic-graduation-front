@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MusicService } from '../services/music.service';
 import { ReviewService } from '../services/review.service';
@@ -21,6 +21,8 @@ export class AlbumPageComponent {
   data: any;
   myReview: any;
   imgSource: string = '';
+  userId: any = localStorage.getItem('id');
+  reviewCnt: number = 3;
   constructor(
     private musicService: MusicService,
     private route: ActivatedRoute,
@@ -41,11 +43,9 @@ export class AlbumPageComponent {
             this.reviewService
               .addFakeReviews(this.route.snapshot.params['id'], 'MUSIC')
               .subscribe((res: any) => {
-                console.log(res);
                 this.reviews = res;
               });
           }
-          console.log(this.data);
         });
 
       this.getMyReview();
@@ -58,8 +58,6 @@ export class AlbumPageComponent {
       this.reviewService
         .getReview(userId, this.route.snapshot.params['id'], 'MUSIC')
         .subscribe((review: any) => {
-          console.log('here');
-          console.log(review);
           this.myReview = review;
         });
     }
@@ -67,7 +65,7 @@ export class AlbumPageComponent {
 
   leaveReview() {
     let dialogRef = this.dialog.open(ReviewComponent, {
-      height: '600px',
+      height: '700px',
       width: '500px',
       data: { itemId: this.route.snapshot.params['id'], type: 'MUSIC' },
     });
@@ -83,10 +81,15 @@ export class AlbumPageComponent {
               { comment: 'No reviews yet', rating: 0, reviewer: '' },
             ];
           }
+          this.getMyReview();
         });
     });
   }
   sanitazeUrl(url: string): SafeUrl {
     return this.domSanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+  showAll() {
+    if (this.reviewCnt == 3) this.reviewCnt = (this.reviews.length % 30) - 1;
+    else this.reviewCnt = 3;
   }
 }

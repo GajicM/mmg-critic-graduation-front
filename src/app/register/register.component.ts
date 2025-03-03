@@ -15,9 +15,7 @@ export class RegisterComponent {
   constructor(
     private authService: AuthService,
     private dialog: MatDialog,
-  ) {
-    console.log('Register Component');
-  }
+  ) {}
 
   validateEmail(): boolean {
     return true;

@@ -33,7 +33,6 @@ export class MoviesComponent {
       .pipe(
         map((dataSource: any) => {
           this.newMovies = dataSource;
-          console.log(dataSource);
           return dataSource;
         }),
         catchError((error) => {
@@ -79,8 +78,6 @@ export class MoviesComponent {
       )
       .subscribe();
     this.ytSearch.ytSearch('movie trailer').subscribe((res: any) => {
-      console.log(res.items[0].id.videoId);
-      console.log(res);
       this.trailer_id = res.items[0].id.videoId;
     });
   }

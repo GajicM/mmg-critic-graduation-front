@@ -24,26 +24,22 @@ export class MusicComponent {
 
   getByTitle(title: string) {
     this.musicService.getByTitle(title).subscribe((data: any) => {
-      console.log(data);
       this.musicForTitle = data;
     });
   }
   getTopRateMusic() {
     this.musicService.getTopRateMusic().subscribe((data: any) => {
-      console.log(data);
       this.topRatedMusic = data;
     });
   }
   getNewsetMusic() {
     this.musicService.getNewsetMusic().subscribe((data: any) => {
-      console.log(data);
       this.newestMusic = data;
     });
   }
 
   getAlbumsByArtist(artistName: string) {
     this.musicService.getAlbumsByArtist(artistName).subscribe((data: any) => {
-      console.log(data);
       this.albumsByArtist = data;
     });
   }

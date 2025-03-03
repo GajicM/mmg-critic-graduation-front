@@ -30,7 +30,6 @@ export class SearchComponent implements OnInit {
     this.searchControl.valueChanges
       .pipe(debounceTime(300))
       .subscribe((value) => {
-        console.log(value);
         this.filteredOptions = this.searchService.search(value);
       });
   }

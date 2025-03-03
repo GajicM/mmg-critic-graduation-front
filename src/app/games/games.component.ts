@@ -58,9 +58,10 @@ export class GamesComponent {
     });
 
     this.ytSearch.ytSearch('game trailer').subscribe((res: any) => {
-      console.log(res.items[0].id.videoId);
-      console.log(res);
-      this.trailer_id = res.items[0].id.videoId;
+      if (res.items[0].id.videoId != undefined)
+        this.trailer_id = res.items[0].id.videoId;
+
+      this.trailer_id = res.items[1].id.videoId;
     });
   }
 
