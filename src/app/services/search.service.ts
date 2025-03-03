@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class SearchService {
-  yt_key = 'AIzaSyCINhVbBbpKleBpZjvBfFQRMrlhfcwMqAA';
+  yt_key = '';
   constructor(private httpClient: HttpClient) {}
 
   search(value: string): Observable<string[]> {
