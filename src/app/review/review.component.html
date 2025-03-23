@@ -1,4 +1,4 @@
-<div
+<mat-card
   style="
     align-self: center;
     align-items: center;
@@ -7,7 +7,9 @@
     padding-top: 5%;
     padding-bottom: 5%;
     border: 1px #3666;
-    min-height: fit-content;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 500px;
   "
 >
   <h1>Leave a Review</h1>
@@ -22,18 +24,18 @@
   >
     <input matSliderThumb [(ngModel)]="review.grade" />
   </mat-slider>
-  <br />
-  <hr />
-
-  <label>Rating {{ this.review.grade | description }}</label>
+  <label
+    >Rating: {{ this.review.grade }}
+    {{ this.review.grade | description }}</label
+  >
   <br />
   <br />
   <hr />
   <h2>Leave a Comment here</h2>
-  <mat-form-field appearance="outline" style="width: 400px; height: 220px">
+  <mat-form-field appearance="outline" style="width: 400px; height: 250x">
     <mat-label>Comment</mat-label>
     <textarea
-      style="height: 205px"
+      style="height: 215px"
       matInput
       [(ngModel)]="review.comment"
       placeholder="Ex. It makes me feel..."
@@ -46,4 +48,4 @@
   </button>
   <br />
   <br />
-</div>
+</mat-card>

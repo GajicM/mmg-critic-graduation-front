@@ -8,7 +8,7 @@ import {
   startWith,
   switchMap,
 } from 'rxjs/operators';
-import { SearchService } from '../services/search.service';
+import { SearchService } from '../services/search_service/search.service';
 import { Router } from '@angular/router';
 import { getType } from '@angular/flex-layout/extended/style/style-transforms';
 

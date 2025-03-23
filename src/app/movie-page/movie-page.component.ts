@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MmgCriticBackendService } from '../services/mmg-critic-backend.service';
+import { MmgCriticBackendService } from '../services/backend_service/mmg-critic-backend.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { ReviewService } from '../services/review.service';
+import { ReviewService } from '../services/review_service/review.service';
 import { ReviewComponent } from '../review/review.component';
-import { SearchService } from '../services/search.service';
+import { SearchService } from '../services/search_service/search.service';
 
 @Component({
   selector: 'app-movie-page',
@@ -42,6 +42,7 @@ export class MoviePageComponent implements OnInit {
             .subscribe((res: any) => {
               this.data.trailer = res.items[0].id.videoId;
             });
+          console.log(game);
           if (this.reviews.length === 0) {
             this.reviews = [
               { comment: 'No reviews yet', rating: 0, reviewer: '' },
@@ -65,15 +66,13 @@ export class MoviePageComponent implements OnInit {
         .getReview(userId, this.route.snapshot.params['id'], 'MOVIE')
         .subscribe((review: any) => {
           this.myReview = review;
+          console.log(review);
         });
     }
   }
 
   leaveReview() {
     let dialogRef = this.dialog.open(ReviewComponent, {
-      height: '800px',
-      width: '500px',
-
       data: { itemId: this.route.snapshot.params['id'], type: 'MOVIE' },
     });
     dialogRef.afterClosed().subscribe((result) => {

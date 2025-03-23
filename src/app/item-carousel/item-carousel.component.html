@@ -7,19 +7,14 @@
     <mat-card class="parent">
       <mat-card-content style="padding: 0%">
         <img
-          [src]="
-            sanitazeUrl(
-              imgSource +
-                (item.imageUrl === undefined ? item.posterPath : item.imageUrl)
-            )
-          "
+          [src]="getImagePath(item)"
           alt="Item Image"
           height="300"
           width="200"
         />
       </mat-card-content>
 
-      <mat-card-title>{{ item.title }}</mat-card-title>
+      <mat-card-title>{{ item.title || item.name }}</mat-card-title>
       <mat-card-subtitle class="child">
         <a [ngStyle]="{ 'background-color': getColor(item) }">{{
           getNumber(item)

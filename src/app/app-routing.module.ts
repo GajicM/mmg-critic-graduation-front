@@ -11,6 +11,7 @@ import { MediaPageComponent } from './media-page/media-page.component';
 import { LoginComponent } from './login/login.component';
 import { MoviePageComponent } from './movie-page/movie-page.component';
 import { AlbumPageComponent } from './album-page/album-page.component';
+import { UserPageComponent } from './user-page/user-page.component';
 const routes: Routes = [
   {
     path: '',
@@ -38,6 +39,7 @@ const routes: Routes = [
     path: 'album/:id',
     component: AlbumPageComponent,
   },
+  { path: 'user/:id', component: UserPageComponent },
 ];
 
 @NgModule({

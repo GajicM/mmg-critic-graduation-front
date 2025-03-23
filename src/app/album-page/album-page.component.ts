@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MusicService } from '../services/music.service';
-import { ReviewService } from '../services/review.service';
+import { MusicService } from '../services/music_service/music.service';
+import { ReviewService } from '../services/review_service/review.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ReviewComponent } from '../review/review.component';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
@@ -65,8 +65,6 @@ export class AlbumPageComponent {
 
   leaveReview() {
     let dialogRef = this.dialog.open(ReviewComponent, {
-      height: '700px',
-      width: '500px',
       data: { itemId: this.route.snapshot.params['id'], type: 'MUSIC' },
     });
     dialogRef.afterClosed().subscribe((result) => {

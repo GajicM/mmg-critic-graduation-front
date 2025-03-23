@@ -42,4 +42,17 @@ export class ReviewService {
       },
     );
   }
+  leaveInteraction(isLiked: boolean, user_id: any, reviewId: number) {
+    const params = new HttpParams()
+      .set('reviewId', reviewId)
+      .set('isLiked', isLiked)
+      .set('userId', user_id);
+
+    return this.httpClient.get(
+      'http://localhost:8000/api/reviews/leave-interaction',
+      {
+        params,
+      },
+    );
+  }
 }

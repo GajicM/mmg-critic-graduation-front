@@ -27,4 +27,25 @@ export class MmgCriticBackendService {
       'http://localhost:8000/api/movies/find-by-id/' + id,
     );
   }
+  getMediaById(type: string, id: number) {
+    switch (type) {
+      case 'GAME': {
+        type = 'games';
+        break;
+      }
+      case 'MUSIC': {
+        type = 'music';
+        break;
+      }
+      case 'MOVIE': {
+        type = 'movies';
+        break;
+      }
+      default:
+        break;
+    }
+    return this.httpClient.get(
+      `http://localhost:8000/api/${type}/find-by-id/${id}`,
+    );
+  }
 }

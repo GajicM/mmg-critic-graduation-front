@@ -34,14 +34,15 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviePageComponent } from './movie-page/movie-page.component';
 import { AlbumPageComponent } from './album-page/album-page.component';
-import { DateTimePipe } from './date-time.pipe';
-import { DescriptionPipe } from './description.pipe';
+import { DateTimePipe } from './pipes/date-time.pipe';
+import { DescriptionPipe } from './pipes/description.pipe';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReviewComponent } from './review/review.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatListModule } from '@angular/material/list'; // Optional, for displaying the suggestions
 import { SearchComponent } from './search/search.component';
-import { NumberSeparatorPipe } from './number-separator.pipe';
+import { NumberSeparatorPipe } from './pipes/number-separator.pipe';
+import { UserPageComponent } from './user-page/user-page.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { NumberSeparatorPipe } from './number-separator.pipe';
     AlbumPageComponent,
     ReviewComponent,
     SearchComponent,
+    UserPageComponent,
   ],
   imports: [
     BrowserModule,

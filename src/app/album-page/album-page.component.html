@@ -102,12 +102,12 @@
   <hr />
   <div class="container">
     <div class="box">
-      <div class="box-1">Artist{{ this.data.artist.name }}</div>
-      <div class="box-1">Total Tracks {{ this.data.totalTracks }}</div>
+      <div class="box-1"><b>Artist</b> {{ this.data.artist.name }}</div>
+      <div class="box-1"><b>Total Tracks</b> {{ this.data.totalTracks }}</div>
       <div class="box-1">
-        Release Date {{ this.data.releaseDate | dateTime }}
+        <b>Release Date</b> {{ this.data.releaseDate | dateTime }}
       </div>
-      <div class="box-1">Genres {{ this.data.artist.genres }}</div>
+      <div class="box-1"><b>Genres</b> {{ this.data.artist.genres }}</div>
     </div>
   </div>
 </div>

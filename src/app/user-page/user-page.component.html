@@ -1,0 +1,40 @@
+<div style="justify-content: space-between; min-height: 100%; min-width: 100%">
+  <br />
+  <br />
+  <br />
+  <div>
+    <!-- public info-->
+    <div style="justify-self: center">
+      <h1>
+        <mat-icon>person</mat-icon>
+        {{
+          user != undefined && user?.username !== undefined
+            ? user.username
+            : "undefined"
+        }}
+      </h1>
+    </div>
+    <h2 class="other-headers">Recently Reviewed by user</h2>
+    <hr />
+    <app-item-carousel
+      [items]="recentlyReviewed"
+      [ref]="'album'"
+      [multiBox]="true"
+    ></app-item-carousel>
+    <h2 class="other-headers">Highest scoring media for user</h2>
+    <hr />
+    <app-item-carousel
+      [items]="topRatedMediaForUser"
+      [ref]="'album'"
+      [multiBox]="true"
+    ></app-item-carousel>
+  </div>
+  <h2 class="other-headers">Most interacted review</h2>
+  <hr />
+  <app-critic-card
+    [type]="'user-page'"
+    [myReview]="false"
+    [review]="bestPerformingReview"
+  >
+  </app-critic-card>
+</div>

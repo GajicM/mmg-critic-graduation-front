@@ -6,8 +6,8 @@ import {
   Renderer2,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { GamesServiceService } from '../services/games-service.service';
-import { SearchService } from '../services/search.service';
+import { GamesServiceService } from '../services/games_service/games-service.service';
+import { SearchService } from '../services/search_service/search.service';
 
 @Component({
   selector: 'app-games',

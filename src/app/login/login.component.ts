@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../services/auth_service/auth.service';
 import { jwtDecode } from 'jwt-decode';
 import { RegisterComponent } from '../register/register.component';
 

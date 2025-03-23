@@ -1,12 +1,12 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { YoutubePlayer } from '../youtube-embed/youtube-embed.component';
-import { GamesServiceService } from '../services/games-service.service';
+import { GamesServiceService } from '../services/games_service/games-service.service';
 import { ActivatedRoute, Route } from '@angular/router';
-import { ReviewService } from '../services/review.service';
+import { ReviewService } from '../services/review_service/review.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ReviewComponent } from '../review/review.component';
 import { MobyApiService } from '../services/moby-api.service';
-import { SearchService } from '../services/search.service';
+import { SearchService } from '../services/search_service/search.service';
 
 @Component({
   selector: 'app-media-page',
@@ -78,8 +78,6 @@ export class MediaPageComponent {
 
   leaveReview() {
     let dialogRef = this.dialog.open(ReviewComponent, {
-      minHeight: '9900px',
-      width: '500px',
       data: { itemId: this.route.snapshot.params['id'], type: 'GAME' },
     });
     dialogRef.afterClosed().subscribe((result) => {

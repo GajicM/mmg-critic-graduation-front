@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RegisterComponent } from '../register/register.component';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../services/auth_service/auth.service';
 
 @Component({
   selector: 'app-navigation-menu',
@@ -10,6 +10,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class NavigationMenuComponent {
   authService: any;
+  user_id = localStorage.getItem('id');
   constructor(
     private dialog: MatDialog,
     authService: AuthService,

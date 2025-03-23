@@ -1,4 +1,4 @@
-import { NumberSeparatorPipe } from './number-separator.pipe';
+import { NumberSeparatorPipe } from '../number-separator.pipe';
 
 describe('NumberSeparatorPipe', () => {
   it('create an instance', () => {

@@ -3,11 +3,12 @@
   *ngIf="this.router.url != '/login' && this.router.url != '/register'"
 ></app-navigation-menu>
 <div class="site-container">
-  <div class="background"></div>
-  <section class="container">
-    <router-outlet></router-outlet>
-    <app-footer
-      *ngIf="this.router.url != '/login' && this.router.url != '/register'"
-    ></app-footer>
-  </section>
+  <div class="background">
+    <section class="container">
+      <router-outlet></router-outlet>
+      <app-footer
+        *ngIf="this.router.url != '/login' && this.router.url != '/register'"
+      ></app-footer>
+    </section>
+  </div>
 </div>

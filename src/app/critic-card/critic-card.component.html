@@ -1,6 +1,20 @@
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
 <mat-card class="product-card">
   <mat-card-header style="align-self: center; justify-content: center">
-    <mat-card-title>{{ review.username }}</mat-card-title>
+    <mat-card-title
+      ><h2 [routerLink]="'/user/' + review.username">{{ review.username }}</h2>
+      <h4
+        [routerLink]="mediaUrl"
+        *ngIf="type == 'user-page'"
+        style="cursor: pointer"
+      >
+        {{ title }}
+      </h4></mat-card-title
+    >
+
     <mat-card-subtitle
       >{{ review.grade }} {{ review.grade | description }}</mat-card-subtitle
     >
@@ -8,12 +22,39 @@
   <mat-card-content>
     <a>{{ review.comment }}</a>
   </mat-card-content>
-  <button
-    style="align-self: center"
-    mat-button
-    *ngIf="this.myReview"
-    (click)="updateReview()"
-  >
-    Update the review
-  </button>
+  <div>
+    <div *ngIf="!this.myReview">
+      <button
+        mat-icon-button
+        matSuffix
+        type="button"
+        [attr.aria-label]="'Like'"
+        [attr.aria-pressed]="true"
+        (click)="likeReview(true)"
+      >
+        <mat-icon>thumb_up</mat-icon>
+      </button>
+      <span style="font-size: 20px">{{ this.liked }}</span>
+      <button
+        mat-icon-button
+        matSuffix
+        type="button"
+        [attr.aria-label]="'Dislike'"
+        [attr.aria-pressed]="false"
+        (click)="likeReview(false)"
+      >
+        <mat-icon>thumb_down</mat-icon>
+      </button>
+      <span style="font-size: 20px">{{ this.disliked }}</span>
+    </div>
+
+    <button
+      style="align-self: center"
+      mat-button
+      *ngIf="this.myReview"
+      (click)="updateReview()"
+    >
+      Update the review
+    </button>
+  </div>
 </mat-card>

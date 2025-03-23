@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { MusicService } from '../services/music.service';
-import { GamesServiceService } from '../services/games-service.service';
-import { MmgCriticBackendService } from '../services/mmg-critic-backend.service';
+import { MusicService } from '../services/music_service/music.service';
+import { GamesServiceService } from '../services/games_service/games-service.service';
+import { MmgCriticBackendService } from '../services/backend_service/mmg-critic-backend.service';
 
 @Component({
   selector: 'app-home-page',

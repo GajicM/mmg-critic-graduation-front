@@ -73,18 +73,18 @@
   <hr />
   <div class="container">
     <div class="box-1">
-      <a>Production Company :</a> {{ this.data.productionCompanies }}
+      <b>Production Company :</b> {{ this.data.productionCompanies }}
     </div>
-    <div class="box-1"><a>Runtime :</a> {{ this.data.runtime }} min</div>
+    <div class="box-1"><b>Runtime </b> {{ this.data.runtime }} min</div>
     <div class="box-1">
-      <a>Release date :</a> {{ this.data.releaseDate | dateTime }}
+      <b>Release date </b> {{ this.data.releaseDate | dateTime }}
     </div>
-    <div class="box-1"><a>Genres :</a> {{ this.data.genres }}</div>
+    <div class="box-1"><b>Genres :</b> {{ this.data.genres }}</div>
     <div class="box-1">
-      <a>Budget :</a> {{ this.data.budget | numberSeparator }} USD
+      <b>Budget :</b> {{ this.data.budget | numberSeparator }} USD
     </div>
     <div class="box-1">
-      <a>Homepage :</a>
+      <b>Homepage :</b>
       <a style="font-weight: 400" href="{{ this.data.homepage }}">{{
         this.data.homepage
       }}</a>

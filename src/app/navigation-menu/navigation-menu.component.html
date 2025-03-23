@@ -36,5 +36,16 @@
     >
       Logout
     </a>
+    <button
+      mat-icon-button
+      matSuffix
+      type="button"
+      [attr.aria-label]="'Dislike'"
+      [attr.aria-pressed]="false"
+      [routerLink]="'/user/' + user_id"
+      *ngIf="this.authService.loggedInStatus"
+    >
+      <mat-icon>person</mat-icon>
+    </button>
   </div>
 </mat-toolbar>

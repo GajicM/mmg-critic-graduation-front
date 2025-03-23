@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { MmgCriticBackendService } from '../services/mmg-critic-backend.service';
+import { MmgCriticBackendService } from '../services/backend_service/mmg-critic-backend.service';
 import { catchError, map, throwError } from 'rxjs';
-import { SearchService } from '../services/search.service';
+import { SearchService } from '../services/search_service/search.service';
 
 @Component({
   selector: 'app-movies',

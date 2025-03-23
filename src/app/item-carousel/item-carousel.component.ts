@@ -23,6 +23,10 @@ export class ItemCarouselComponent {
   private isMouseDown = false;
   private startX: number = 0;
   private scrollLeft: number = 0;
+  private movieImgSource: string = 'https://image.tmdb.org/t/p/w500';
+  private musicImgSource: string = '';
+  private gameImgSource: string = 'https://www.vgchartz.com';
+  @Input() multiBox: boolean = false;
   private removeMouseMoveListener: () => void;
   private removeMouseUpListener: () => void;
 
@@ -59,7 +63,13 @@ export class ItemCarouselComponent {
   @Output() itemClicked = new EventEmitter<any>();
   onItemClick(item: any): void {
     this.itemClicked.emit(item);
-    this.router.navigate(['/' + this.ref, item.id]);
+    if (item.type == 'MUSIC') {
+      item.type = 'album';
+    }
+    this.router.navigate([
+      '/' + (item.type?.toLowerCase() || this.ref),
+      item.id,
+    ]);
   }
   sanitazeUrl(url: string): SafeUrl {
     return this.domSanitizer.bypassSecurityTrustResourceUrl(url);
@@ -84,5 +94,26 @@ export class ItemCarouselComponent {
       return avg.toFixed(1);
     }
     return '';
+  }
+  concatImagePath(item: any) {
+    switch (item.type) {
+      case 'MOVIE':
+        return this.movieImgSource + item.imgPath;
+      case 'GAME':
+        return this.gameImgSource + item.imgPath;
+      case 'MUSIC':
+        return this.musicImgSource + item.imgPath;
+      default:
+        return '';
+    }
+  }
+
+  getImagePath(item: any) {
+    return this.multiBox
+      ? this.sanitazeUrl(this.concatImagePath(item))
+      : this.sanitazeUrl(
+          this.imgSource +
+            (item.imageUrl === undefined ? item.posterPath : item.imageUrl),
+        );
   }
 }
