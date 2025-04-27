@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { ReviewService } from '../services/review_service/review.service';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-review',
@@ -19,6 +20,7 @@ export class ReviewComponent {
     private reviewService: ReviewService,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialog: MatDialog,
+    private router: Router,
   ) {
     if (data.review) this.review = data.review;
   }
@@ -29,6 +31,12 @@ export class ReviewComponent {
         .subscribe({
           next: (res: any) => {
             this.dialog.closeAll();
+            const currentUrl = this.router.url;
+            this.router
+              .navigateByUrl('/', { skipLocationChange: true })
+              .then(() => {
+                this.router.navigate([currentUrl]);
+              });
           },
           error: (err: any) => {
             console.log(err);

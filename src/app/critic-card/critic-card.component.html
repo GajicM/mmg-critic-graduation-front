@@ -2,10 +2,15 @@
   href="https://fonts.googleapis.com/icon?family=Material+Icons"
   rel="stylesheet"
 />
-<mat-card class="product-card">
+<mat-card
+  class="product-card"
+  [ngStyle]="{ 'align-items': this.myReview ? 'center' : 'left' }"
+>
   <mat-card-header style="align-self: center; justify-content: center">
     <mat-card-title
-      ><h2 [routerLink]="'/user/' + review.username">{{ review.username }}</h2>
+      ><h2 style="text-align: center" [routerLink]="'/user/' + review.username">
+        {{ review.username }}
+      </h2>
       <h4
         [routerLink]="mediaUrl"
         *ngIf="type == 'user-page'"

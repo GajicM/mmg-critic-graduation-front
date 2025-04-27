@@ -58,6 +58,7 @@ export class CriticCardComponent implements OnChanges {
   likeReview(isLiked: boolean) {
     const userId = localStorage.getItem('id');
     if (userId == null) alert('You must log in to interact');
+    console.log(this.review);
     this.reviewService
       .leaveInteraction(isLiked, userId, this.review.id)
       .subscribe((data: any) => {
@@ -106,8 +107,6 @@ export class CriticCardComponent implements OnChanges {
     }
   }
   getLinkForMediaTitle() {
-    console.log('ASDASDASD');
-    console.log(this.review);
     switch (this.review.type) {
       case 'MOVIE':
         this.mediaUrl = '/movie/' + this.review.mediaId;
@@ -121,7 +120,7 @@ export class CriticCardComponent implements OnChanges {
       default:
         break;
     }
-    console.log(this.mediaUrl);
+
     return;
   }
 }

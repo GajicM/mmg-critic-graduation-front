@@ -19,7 +19,7 @@ export class MusicComponent {
   ) {
     this.getTopRateMusic();
     this.getNewsetMusic();
-    this.getAlbumsByArtist('J.J. Cale');
+    this.getAlbumsByArtist('Mavis Staples');
   }
 
   getByTitle(title: string) {
