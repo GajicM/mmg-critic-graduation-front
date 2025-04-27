@@ -11,6 +11,7 @@ import { AuthService } from '../services/auth_service/auth.service';
 export class NavigationMenuComponent {
   authService: any;
   user_id = localStorage.getItem('id');
+  username = localStorage.getItem('username');
   constructor(
     private dialog: MatDialog,
     authService: AuthService,

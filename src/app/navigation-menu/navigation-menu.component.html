@@ -42,7 +42,7 @@
       type="button"
       [attr.aria-label]="'Dislike'"
       [attr.aria-pressed]="false"
-      [routerLink]="'/user/' + user_id"
+      [routerLink]="'/user/' + username"
       *ngIf="this.authService.loggedInStatus"
     >
       <mat-icon>person</mat-icon>
